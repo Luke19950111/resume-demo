@@ -285,12 +285,18 @@ body{
         background: #fae1e1;
         border-radius: 2px;
         margin: 4px 0 40px;
+        overflow: hidden;
     }
     section.skills .progressBar > .progress {
         height: 100%;
         width: 70%;
         background: #E6686A;
         border-radius: 2px;
+        transform: translateX(0);
+        transition: all 1s;
+    }
+    section.skills.offset .progress{
+        transform: translateX(-100%);
     }
     section.portfolio{
         text-align: center;
