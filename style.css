@@ -26,6 +26,7 @@ body{
         display: block;
         clear: both;
     }
+    
     .topNavBar{
         padding: 20px 0 20px 0;
         position: fixed;
@@ -70,7 +71,8 @@ body{
         display: block;
         position: relative;
     }
-    .topNavBar nav > ul > li.active > a::after{
+    .topNavBar nav > ul > li.active > a::after,
+    .topNavBar nav > ul > li.highlight > a::after{
         content: '';
         display: block;
         position: absolute;
