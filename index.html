@@ -8,24 +8,30 @@
   <script src="//at.alicdn.com/t/font_451045_32zbfqegtq3t0529.js"></script>
   <style type="text/css">
     .icon {
-       width: 1em; height: 1em;
-       vertical-align: -0.15em;
-       fill: currentColor;
-       overflow: hidden;
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
     }
-    .site-welcome{
+
+    .site-welcome {
       display: none;
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 1;
       justify-content: center;
       align-items: center;
       background: white;
-      
+
     }
-    .site-welcome.active{
+
+    .site-welcome.active {
       display: flex;
-      
+
     }
   </style>
 </head>
@@ -108,17 +114,17 @@
       <footer class="media">
         <a href="#">
           <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-github"></use>
+            <use xlink:href="#icon-github"></use>
           </svg>
         </a>
         <a href="#">
           <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-Ankerwebicon-"></use>
+            <use xlink:href="#icon-Ankerwebicon-"></use>
           </svg>
         </a>
         <a href="#">
           <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-weibo"></use>
+            <use xlink:href="#icon-weibo"></use>
           </svg>
         </a>
       </footer>
@@ -171,7 +177,7 @@
           <div class="progress" style="width: 70%"></div>
         </div>
       </li>
-      
+
     </ol>
   </section>
   <section id="siteWorks" class="portfolio">
@@ -187,13 +193,13 @@
       </div>
     </nav>
     <script>
-      portfolioAll.onclick= function(){
+      portfolioAll.onclick = function () {
         portfolioBar.className = 'bar state-1'
       }
-      portfolioFramework.onclick= function(){
+      portfolioFramework.onclick = function () {
         portfolioBar.className = 'bar state-2'
       }
-      portfolioVallina.onclick= function(){
+      portfolioVallina.onclick = function () {
         portfolioBar.className = 'bar state-3'
       }
     </script>
@@ -211,40 +217,62 @@
     </div>
 
   </section>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js'></script>
   <script>
-    setTimeout(function(){
+    setTimeout(function () {
       siteWelcome.classList.remove('active')
-    },1000)
-    window.onscroll = function(){
-      if(window.scrollY > 0){
+    }, 1000)
+    window.onscroll = function () {
+      if (window.scrollY > 0) {
         topNavBar.classList.add('sticky')
-      }else{
+      } else {
         topNavBar.classList.remove('sticky')
       }
     }
     let liTags = document.querySelectorAll('nav.menu>ul>li')
-    for(i=0; i<liTags.length; i++){
-      liTags[i].onmouseenter = function(x){
+    for (i = 0; i < liTags.length; i++) {
+      liTags[i].onmouseenter = function (x) {
         x.currentTarget.classList.add('active')
       }
-      liTags[i].onmouseleave = function(x){
+      liTags[i].onmouseleave = function (x) {
         x.currentTarget.classList.remove('active')
       }
-      
+
     }
     let aTags = document.querySelectorAll('nav.menu > ul > li > a')
-    for(let i=0; i<aTags.length; i++){
-      aTags[i].onclick = function(x){
+    
+    function animate(time) {
+      requestAnimationFrame(animate);
+      TWEEN.update(time);
+    }
+    requestAnimationFrame(animate);
+    
+    for (let i = 0; i < aTags.length; i++) {
+      aTags[i].onclick = function (x) {
         x.preventDefault()
-        let a = x.currentTarget;
+        /*let a = x.currentTarget;
         let href = a.getAttribute('href');
         let element =document.querySelector(href);
-        let top = element.offsetTop;
-        window.scrollTo(0, top - 80);
+        let top = element.offsetTop;*/
+        let top = document.querySelector(x.currentTarget.getAttribute('href')).offsetTop; //以上四句
+        
+        let currentTop = window.scrollY;
+        let targetTop = top - 80;
+        let s = targetTop - currentTop;
+    var coords = { y: currentTop };
+    var t = Math.abs((s/100)*300); //每100像素用时300ms
+    if(t > 500){t = 500}
+    var tween = new TWEEN.Tween(coords)
+      .to({ y: targetTop }, t)
+      .easing(TWEEN.Easing.Quadratic.InOut)
+      .onUpdate(function () {
+        window.scrollTo(0,coords.y)
+      })
+      .start();
       }
     }
-   
-    
+
+
   </script>
 </body>
 
