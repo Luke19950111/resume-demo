@@ -192,14 +192,16 @@ body{
         line-height: 1.8; 
         font-size: 18px;
     }
-    section.skills{
+    section.skills,
+    section.portfolio{
         max-width: 940px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 60px;
 
     }
-    section.skills > h2{
+    section.skills > h2,
+    section.portfolio > h2{
         color: #3d4451;
         font-size: 34px;
         line-height: 1.2;
@@ -233,8 +235,63 @@ body{
     }
     section.skills .progressBar > .progress {
         height: 100%;
+        width: 70%;
         background: #E6686A;
         border-radius: 2px;
+    }
+    section.portfolio{
+        text-align: center;
+        margin-bottom: 100px;
+    }
+    section.portfolio > nav{
+        text-align: center;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 32px;
+    }
+    section.portfolio > nav > ol{
+        display: inline-block;
+        vertical-align: top;
+    }
+    section.portfolio > nav > ol > li{
+        float: left;
+        margin-left: 40px;
+        cursor: pointer;
+    }
+    section.portfolio > nav > ol > li:first-child{
+        margin-left: 0;
+    }
+    section.portfolio > nav .bar{
+        height: 5px;
+        background: white;
+        margin-top: 5px;
+        margin-bottom: 28px;
+        border-radius: 2px;
+    }
+    section.portfolio > nav .bar-inner{
+        height: 100%;
+        background: #E6686A;
+        border-radius: 2px;
+        transition: all 0.5s;
+    }
+    section.portfolio > nav .bar.state-1 .bar-inner{
+        margin-left: 0;
+        width: 35px;
+    }
+    section.portfolio > nav .bar.state-2 .bar-inner{
+        margin-left: 65px;
+        width: 50px;
+    }
+    section.portfolio > nav .bar.state-3 .bar-inner{
+        margin-left: 140px;
+        width: 96px;
+    }
+    section.portfolio .works{
+        position: relative;
+    }
+    section.portfolio .works > .big,
+    section.portfolio .works > .small{
+        position: absolute;
     }
 
 
