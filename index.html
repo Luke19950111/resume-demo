@@ -37,9 +37,9 @@
 </head>
 
 <body>
-  <div id="siteWelcome" class="site-welcome active">
+  <!-- <div id="siteWelcome" class="site-welcome active">
     <div class="loading"></div>
-  </div>
+  </div> -->
   <div id="topNavBar" class="topNavBar">
     <div class="topNavBar-inner clearfix">
       <a class="logo" href="#" alt="logo" style="float: left;">
@@ -219,16 +219,25 @@
   </section>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js'></script>
   <script>
-    setTimeout(function () {
-      siteWelcome.classList.remove('active')
-    }, 1000)
+    //siteWelcome.classList.remove('active')
     
+    let specialTags = document.querySelectorAll('[data-x]');
+      for(let i=0; i<specialTags.length; i++){
+        specialTags[i].classList.add('offset')
+      }
+
+    setTimeout(function(){
+      yyy()
+    },0)  
     window.onscroll = function () {
       if (window.scrollY > 0) {
         topNavBar.classList.add('sticky')
       } else {
         topNavBar.classList.remove('sticky')
       }
+      yyy()
+    }
+    function yyy(){
       let specialTags = document.querySelectorAll('[data-x]');
       let minIndex = 0;
       for(let i=1; i<specialTags.length; i++){
@@ -236,6 +245,8 @@
           minIndex = i
           }
       }
+      //minIndex就是离屏幕窗口顶部最近的元素
+      specialTags[minIndex].classList.remove('offset')
       let id = specialTags[minIndex].id;
       let a = document.querySelector('a[href="#' + id + '"]'); //根据元素id获取a标签
       let li = a.parentNode;
