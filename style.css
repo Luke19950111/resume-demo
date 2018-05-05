@@ -301,8 +301,9 @@ body{
     section.portfolio{
         text-align: center;
         margin-bottom: 100px;
+        max-width: 720px;
     }
-    section.portfolio > nav{
+    /* section.portfolio > nav{
         text-align: center;
         display: inline-block;
         vertical-align: top;
@@ -351,5 +352,28 @@ body{
     section.portfolio .works > .big,
     section.portfolio .works > .small{
         position: absolute;
+    } */
+    section.portfolio h2{
+        margin-bottom: 32px;
     }
-
+    section.portfolio .swiper-container {
+        width: 668px;
+        height: 501px;
+        box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5)
+    }
+    section.portfolio .swiper-slide {
+        background: white;
+      }
+    section.portfolio .swiper-button-prev,
+    section.portfolio .swiper-button-next{
+        height: 64px;
+        width: 64px;
+        background-color: white;
+        border-radius: 50px;
+        right: 100%;
+        left: auto;
+    }
+    section.portfolio .swiper-button-next{
+        left: 100%;
+        right: auto;
+    }
