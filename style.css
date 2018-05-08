@@ -261,7 +261,8 @@ body{
 
     }
     section.skills > h2,
-    section.portfolio > h2{
+    section.portfolio > h2,
+    section.message > h2{
         color: #3d4451;
         font-size: 34px;
         line-height: 1.2;
