@@ -309,7 +309,7 @@ body{
     section.portfolio{
         text-align: center;
         margin-bottom: 100px;
-        max-width: 720px;
+        max-width: 812px;
     }
     /* section.portfolio > nav{
         text-align: center;
@@ -361,7 +361,8 @@ body{
     section.portfolio .works > .small{
         position: absolute;
     } */
-    section.portfolio h2{
+    section.portfolio h2,
+    section.message h2{
         margin-bottom: 32px;
     }
     section.portfolio .swiper-container {
@@ -376,7 +377,7 @@ body{
     section.portfolio .swiper-button-next{
         height: 64px;
         width: 64px;
-        background-color: white;
+        background-color: #ffffff;
         border-radius: 50px;
         right: 100%;
         left: auto;
@@ -384,4 +385,20 @@ body{
     section.portfolio .swiper-button-next{
         left: 100%;
         right: auto;
+    }
+    section.message > ol{
+        max-width: 940px;
+        margin: 0 auto;
+        background: #ffffff;
+    }
+    section.message > ol > li{
+        box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+        padding: 16px;
+        margin: 4px 0;
+        border-bottom: 1px solid #ddd;
+        color: #E6686A;
+    }
+    section > form{
+        max-width: 940px;
+        margin: 50px auto; 
     }
